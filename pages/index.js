@@ -1,32 +1,39 @@
 import Head from "next/head";
 import Link from "next/Link";
+import { format, parseISO } from "date-fns";
 import { blogPosts } from "../lib/data";
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>Kaere Computer Blog</title>
+        <title>Kære Computer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="my-4">
-        <h1>Kaere Computer Blog</h1>
-      </main>
-
-      <div>
+      <div className="space-y-6">
         {blogPosts.map((item) => (
-          <div key={item.slug}>
-            <div className="my-4">
-              <Link href={`/blog/${item.slug}`}>
-                <a>{item.title}</a>
-              </Link>
-            </div>
-            <div className="my-4">{item.date}</div>
-            <div>{item.content}</div>
-          </div>
+          <BlogListItem key={item.slug} {...item} />
         ))}
       </div>
+    </div>
+  );
+}
+
+function BlogListItem({ slug, title, date, content }) {
+  return (
+    <div className="p-4 transition duration-500 ease-in-out bg-blue-50 hover:bg-purple-100">
+      <div>
+        <Link href={`/blog/${slug}`}>
+          <a className="text-xl font-bold">{title}</a>
+        </Link>
+      </div>
+
+      <div className="my-4 text-gray-600 text-s">
+        {format(parseISO(date), "MMMM do, uuu")}
+      </div>
+
+      <div>{content}</div>
     </div>
   );
 }

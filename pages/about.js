@@ -4,12 +4,12 @@ export default function About() {
   return (
     <div>
       <Head>
-        <title>About Kaere Computer Blog</title>
+        <title>About Kære Computer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1>About Kaere Computer Blog</h1>
+        <h2 className="text-2xl font-bold">About Kære Computer</h2>
       </main>
     </div>
   );
