@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/Link";
 import { format, parseISO } from "date-fns";
-import { blogPosts } from "../lib/data";
+// import { blogPosts } from "../lib/data";
 
 export default function Home() {
   return (
@@ -12,9 +12,9 @@ export default function Home() {
       </Head>
 
       <div className="space-y-6">
-        {blogPosts.map((item) => (
+        {/* {blogPosts.map((item) => (
           <BlogListItem key={item.slug} {...item} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

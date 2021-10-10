@@ -32,6 +32,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
+  getAllPosts();
   return {
     paths: blogPosts.map((item) => ({
       params: {
